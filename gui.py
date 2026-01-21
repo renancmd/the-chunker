@@ -18,8 +18,8 @@ class HytaleChunkerGUI:
     def __init__(self, root):
         self.root = root
         self.root.title("Hytale - The Chunker v1.0")
-        self.root.geometry("450x550")
-        self.root.resizable(False, False)
+        self.root.geometry("450x650")
+        self.root.resizable(True, True)
 
         try:
             self.root.iconbitmap(resource_path("icon.ico"))
@@ -250,9 +250,11 @@ class HytaleChunkerGUI:
             do_bkp = self.backup.get()
 
             # Run Core
+            custom_path = self.path_var.get().strip()
             result = core.run_processing(
                 w_name, bases, rad, is_dry, do_bkp, 
-                progress_callback=self.update_progress
+                progress_callback=self.update_progress,
+                custom_saves_path=custom_path
             )
 
             # Report

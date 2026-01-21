@@ -170,8 +170,8 @@ def delete_regions(regions, chunks_path, progress_callback=None):
             progress_callback(index, total)
 
 # MAIN EXECUTION BRIDGE
-def run_processing(world_name, bases_list, radius, dry_run, do_backup, progress_callback=None):
-    saves_path = get_hytale_saves_path()
+def run_processing(world_name, bases_list, radius, dry_run, do_backup, progress_callback=None, custom_saves_path=None):
+    saves_path = get_hytale_saves_path(custom_saves_path)
     chunks_path = get_chunks_path(saves_path, world_name)
 
     regions = load_regions(chunks_path)
