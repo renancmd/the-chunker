@@ -17,6 +17,8 @@ def get_app_data_dir():
 
 def get_backups_dir():
     """Returns the backups directory."""
+    path = os.path.join(get_app_data_dir(), "Backups")
+    os.makedirs(path, exist_ok=True)
     return path
 
 def get_config_path():

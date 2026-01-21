@@ -273,7 +273,8 @@ class HytaleChunkerGUI:
             self.root.after(0, lambda: messagebox.showinfo("Report", msg))
 
         except Exception as e:
-            self.root.after(0, lambda: messagebox.showerror("Critical Error", str(e)))
+            err_msg = str(e)
+            self.root.after(0, lambda: messagebox.showerror("Critical Error", err_msg))
         
         finally:
             self.root.after(0, self.reset_ui)
