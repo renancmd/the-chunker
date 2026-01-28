@@ -1,0 +1,20 @@
+{
+  "Group": "dev.hytalemodding",
+  "Name": "ReChunk",
+  "Version": "${version}",
+  "Description": "Upload and save your chunks!",
+  "Authors": [
+    {
+      "Name": "Teyuz",
+      "Email": "renanmvc421@gmail.com",
+      "Url": "https://renancmd.com"
+    }
+  ],
+  "Website": "https://your-plugin-website.com",
+  "ServerVersion": "*",
+  "Dependencies": {},
+  "OptionalDependencies": {},
+  "DisabledByDefault": false,
+  "IncludesAssetPack": true,
+  "Main": "dev.hytalemodding.RCPlugin"
+}

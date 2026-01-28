@@ -1,14 +1,90 @@
- Python
+####################################
+# Global / IDE
+####################################
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# VS Code
+.vscode/
+
+# Eclipse / STS
+.classpath
+.project
+.settings/
+.springBeans
+.sts4-cache/
+.apt_generated
+.factorypath
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+
+####################################
+# Java (Server Plugin)
+####################################
+
+# Build outputs
+/server-plugin/build/
+/server-plugin/out/
+/server-plugin/.gradle/
+target/
+build/
+
+# Compiled files
+*.class
+*.jar
+*.war
+
+# Logs
+*.log
+
+# Maven wrapper exception
+!.mvn/wrapper/maven-wrapper.jar
+
+# Allow build folders inside src (Maven/Gradle conventions)
+!**/src/main/**/target/
+!**/src/test/**/target/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+
+####################################
+# Python (External Tool)
+####################################
+
+# Bytecode and cache
 __pycache__/
 *.py[cod]
 *$py.class
 
-# Dist/Builds
-build/
-dist/
+# Virtual environments
+venv/
+.venv/
+env/
+
+# PyInstaller build artifacts
+/external-tool/build/
+/external-tool/dist/
 *.spec
 
-# Virtual enviroment
-venv/
-env/
-.env
+
+####################################
+# Temporary / Misc
+####################################
+
+# Temporary files
+*.tmp
+

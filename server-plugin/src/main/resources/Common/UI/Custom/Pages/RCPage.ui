@@ -1,0 +1,193 @@
+$C = "../Common.ui";
+
+@GreetButtonStyle = TextButtonStyle(
+    Default: (Background: #3a7bd5, LabelStyle: (FontSize: 16, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+    Hovered: (Background: #4a8be5, LabelStyle: (FontSize: 16, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+    Pressed: (Background: #2a6bc5, LabelStyle: (FontSize: 16, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center))
+);
+
+@CloseButtonStyle = TextButtonStyle(
+  Default: (Background: #2b3542, LabelStyle: (FontSize: 13, TextColor: #96a9be, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+  Hovered: (Background: #3b4552, LabelStyle: (FontSize: 13, TextColor: #b6c9de, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+  Pressed: (Background: #1b2532, LabelStyle: (FontSize: 13, TextColor: #96a9be, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center))
+);
+
+@RemoveButtonStyle = TextButtonStyle(
+  Default: (Background: #8b3a3a, LabelStyle: (FontSize: 11, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+  Hovered: (Background: #9b4a4a, LabelStyle: (FontSize: 11, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+  Pressed: (Background: #7b2a2a, LabelStyle: (FontSize: 11, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center))
+);
+
+@PrimaryButtonStyle = TextButtonStyle(
+  Default: (Background: #3a7bd5, LabelStyle: (FontSize: 14, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+  Hovered: (Background: #4a8be5, LabelStyle: (FontSize: 14, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+  Pressed: (Background: #2a6bc5, LabelStyle: (FontSize: 14, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center))
+);
+
+@CancelButtonStyle = TextButtonStyle(
+  Default: (Background: #8b3a3a, LabelStyle: (FontSize: 14, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+  Hovered: (Background: #9b4a4a, LabelStyle: (FontSize: 14, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center)),
+  Pressed: (Background: #7b2a2a, LabelStyle: (FontSize: 14, TextColor: #ffffff, RenderBold: true, HorizontalAlignment: Center, VerticalAlignment: Center))
+);
+
+Group {
+    Anchor: (Width: 900, Height: 600);
+    Background: #0a1119(0.95);
+    LayoutMode: Left;
+
+    Group #InputPanel {
+        Anchor: (Width: 400);
+        LayoutMode: Top;
+        Padding: (Full: 20);
+
+        Label #Title {
+            Text: "ReChunk";
+            Anchor: (Height: 40);
+            Style: (FontSize: 24, TextColor: #ffffff, HorizontalAlignment: Center);
+        }
+
+        Label #Subtitle {
+            Text: "v1.0.0";
+            Anchor: (Height: 25);
+            Style: (FontSize: 14, TextColor: #888888, HorizontalAlignment: Center);
+        }
+
+        Group { Anchor: (Height: 10); }
+
+        Label #LabelX {
+            Text: "Enter the X:";
+            Anchor: (Height: 25);
+            Style: (FontSize: 16, TextColor: #cccccc);
+        }
+
+        $C.@TextField #XInput {
+            Anchor: (Height: 40);
+            PlaceholderText: "Ex.: 192";
+        }
+
+        Label #LabelZ {
+            Text: "Enter the Z:";
+            Anchor: (Height: 25);
+            Style: (FontSize: 16, TextColor: #cccccc);
+        }
+
+        $C.@TextField #ZInput {
+            Anchor: (Height: 40);
+            PlaceholderText: "Ex.: 141";
+        }
+
+        Label #BufferLabel {
+            Text: "Enter the buffer:";
+            Anchor: (Height: 25);
+            Style: (FontSize: 16, TextColor: #cccccc);
+        }
+
+        $C.@TextField #BufferInput {
+            Anchor: (Height: 40);
+            PlaceholderText: "Ex.: 5";
+        }
+
+        Group { Anchor: (Height: 15); }
+
+        TextButton #SaveButton {
+            Anchor: (Height: 45);
+            Text: "Save";
+            Style: @GreetButtonStyle;
+        }
+
+        Group { Anchor: (Height: 20); }
+
+        Group {
+            Anchor: (Height: 1);
+            Background: #2b3542(0.8);
+        }
+
+        Group { Anchor: (Height: 15); }
+
+        Label {
+            Text: "MODE";
+            Anchor: (Height: 20);
+            Style: (FontSize: 11, TextColor: #4a5568, LetterSpacing: 2, RenderBold: true);
+        }
+
+        Group { Anchor: (Height: 5); }
+
+        $C.@CheckBoxWithLabel #ProtectCheckBox {
+            @Text = "Protect Selection";
+            @Checked = true;
+            Anchor: (Height: 28);
+        }
+
+        Group { Anchor: (Height: 5); }
+
+        $C.@CheckBoxWithLabel #ResetCheckBox {
+            @Text = "Reset Selection";
+            @Checked = false;
+            Anchor: (Height: 28);
+        }
+
+        Group { Anchor: (Height: 20); }
+
+                Group {
+                    Anchor: (Height: 1);
+                    Background: #2b3542(0.8);
+                }
+
+                Group { Anchor: (Height: 15); }
+
+
+        Group {
+                LayoutMode: Center;
+                Anchor: (Height: 44);
+                Padding: (Full: 10);
+
+                TextButton #StartButton {
+                  Text: "Start";
+                  Anchor: (Width: 110, Height: 40);
+                  Style: @PrimaryButtonStyle;
+                }
+
+                Group { Anchor: (Width: 16); }
+
+                TextButton #CloseButton {
+                        Text: "Close";
+                        Anchor: (Width: 110, Height: 40);
+                        Style: @CloseButtonStyle;
+                      }
+
+                Group { Anchor: (Width: 16); }
+
+                TextButton #CancelButton {
+                  Text: "Cancel";
+                  Anchor: (Width: 110, Height: 40);
+                  Style: @CancelButtonStyle;
+                }
+              }
+    }
+
+
+    Group #ListPanel {
+        FlexWeight: 1;
+        LayoutMode: Top;
+        Padding: (Top: 20, Bottom: 20, Right: 20, Left: 10);
+
+        Group {
+            Anchor: (Height: 40);
+            LayoutMode: Left;
+
+            Label {
+                Text: "Saved Coordinates";
+                Anchor: (Height: 40);
+                Style: (FontSize: 18, TextColor: #ffffff, RenderBold: true, VerticalAlignment: Center);
+            }
+        }
+
+        Group { Anchor: (Height: 10); }
+
+        Group #CoordinatesList {
+            FlexWeight: 1;
+            LayoutMode: TopScrolling;
+            Background: #000000(0.3);
+        }
+    }
+}
