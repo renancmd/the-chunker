@@ -1,87 +1,108 @@
-# 🦖 Hytale: The Chunker
+# 🌍 ReChunk (Hytale World Management)
 
-![GitHub all releases](https://img.shields.io/github/downloads/renancmd/the-chunker/total?style=for-the-badge&color=blue)
+> **Note:** Formerly known as "The Chunker". ReChunk is now a complete suite containing both an in-game Mod and an External Tool.
+
+![GitHub all releases](https://img.shields.io/github/downloads/renancmd/ReChunk/total?style=for-the-badge&color=green)
 ![License](https://img.shields.io/badge/License-GPLv3-blue?style=for-the-badge)
-![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey?style=for-the-badge)
+![Platform](https://img.shields.io/badge/Platform-Windows%20|%20Linux-lightgrey?style=for-the-badge)
+![Language](https://img.shields.io/badge/Language-Java%20|%20Python-orange?style=for-the-badge)
 
-**Safely reset old terrain in Hytale to generate new updates (like the Zone 4 Underground Jungle) without losing your base.**
+**The ultimate solution to safely reset old terrain in Hytale to generate new updates (like the Zone 4 Underground Jungle) without losing your base.**
 
-![Screenshot of The Chunker](screenshot.png)
+![Screenshot of ReChunk](screenshot.png)
 
 ## 📖 The Problem
-Hytale just released its first update adding new mobs such as Cave Rex. However, if you have already explored your world, the new chunks won't load in areas you've visited.
-To see the new content, you usually have to start a new world or walk thousands of blocks away.
+Hytale updates often bring new biomes, mobs (like the Cave Rex), and structures. However, if you have already explored your world, new content won't load in existing chunks. To see the new features, players usually have to start a new world or travel thousands of blocks away.
 
-## 🛠 The Solution
-**The Chunker** calculates exactly which "Region Files" (1024x1024 blocks) contain your bases and deletes everything else around them. This forces the game to re-generate the terrain with the new update features while keeping your buildings safe.
+## 🛠 The Solution: ReChunk Suite
+**ReChunk** calculates exactly which "Region Files" contain your bases and deletes everything else around them. This forces the game to re-generate the terrain with new update features while keeping your buildings safe.
 
-### Key Features
-* **Multi-Base Support:** Protect your main house, your village, and your distant outpost simultaneously.
-* **Smart Protection:** Uses square radius (Chebyshev distance) to ensure corners are not cut off.
-* **Auto-Backup:** Automatically zips your region files before deleting anything.
-* **Simulation Mode:** Dry-run to see exactly what will happen before you commit.
-* **No Python Required:** Comes as a standalone `.exe`.
+We now offer **two ways** to manage your world:
 
----
+### 🤔 Which one should I use?
 
-## 🚀 How to Use (For Players)
-
-### Prerequisites
-* Windows 10/11
-* **Always backup your save folder manually before using any tool.**
-
-### Steps
-1.  Download the latest `The Chunker.exe` from the **[Releases Page](../../releases)**.
-2.  Run the program (Admin rights not required, but recommended).
-3.  **Select your World** from the dropdown list.
-4.  **Add your Bases:**
-    * Go into Hytale, press `F7` **(or check your map)** to get your X and Z coordinates.
-    * Enter them in the tool and click "Add Base".
-    * Repeat for all locations you want to save.
-5.  **Set Radius:** Default is `1`. This keeps the region your base is in, plus 1 region in every direction (Safe buffer).
-6.  **Simulation:** Keep "Simulation (Dry Run)" checked and click **Execute**. Check the report.
-7.  **Clean Up:** Uncheck "Simulation" and click **Execute**.
-8.  Open Hytale and enjoy the new terrain!
+| Feature | 🧩 **ReChunk Mod** (Recommended) | 🛠️ **External Tool** (Classic) |
+| :--- | :--- | :--- |
+| **Best for...** | Real-time protection, precision. | Mass wiping, huge maps, offline maintenance. |
+| **Interface** | **In-Game GUI** & Chat. | Desktop Window (GUI). |
+| **Requirement** | Server must be **ONLINE**. | Server must be **OFFLINE**. |
+| **OS** | Any (Runs on Hytale Server). | Windows & Linux. |
+| **Key Feature** | Visual selection & instant protection. | Fast processing of large files. |
 
 ---
 
-## 💻 For Developers (Running from Source)
+## 🧩 Option 1: ReChunk Mod (Server Plugin)
+*The new, integrated way to protect your builds while you play.*
 
-If you want to modify the code or build it yourself:
+### Features
+* **In-Game GUI:** No need to alt-tab. Manage everything from inside Hytale.
+* **Precise Control:** Stand on a chunk and protect it instantly.
+* **Safe Reset:** Resets surrounding areas without needing to close the server.
+* **Smart Buffer:** Define a radius (buffer) to ensure your building corners aren't cut off.
 
+### 🚀 How to Use (Mod)
+1. Backup your save folder manually.
+2.  **Install:** Drop the `.jar` file into your server's `mods`mfolder and restart.
+3.  **Permissions:** You must be an Operator (OP). Run `/op self` in the server console.
+4.  **Command:** Type **`/rechunk`** in chat.
+5.  **Configure:**
+    * Enter the coordinates (Press `F7` to see them or use the map).
+    * Set the **Buffer Radius**.
+    * Click **Protect** (Whitelist) or **Reset** (Prune).
+
+---
+
+## 🛠️ Option 2: ReChunk Tool (External App)
+*The classic desktop experience. Best for heavy-duty map cleaning.*
+
+### Features
+* **Multi-Base Support:** Protect your main house, village, and outposts simultaneously.
+* **Simulation Mode:** Dry-run to see exactly what will happen before deleting files.
+* **Auto-Backup:** Automatically zips region files before deletion.
+* **Cross-Platform:** Standalone `.exe` for Windows and Python source for Linux.
+
+### 🚀 How to Use (Tool)
+1.  **Backup your save folder manually.**
+2.  Download the executable from the **[Releases Page](../../releases)**.
+3.  **Run the tool** (`ReChunk.exe` on Windows).
+4.  **Select your World** and add your base coordinates.
+5.  **Set Radius:** Default is `1` (Keeps your region + 1 neighbor region buffer).
+6.  **Execute:** Run a Simulation first, then uncheck "Simulation" to apply changes.
+
+---
+
+## 💻 For Developers (Source Code)
+
+This repository is a **monorepo** containing both projects:
 1.  **Clone the repo:**
     ```bash
-    git clone https://github.com/renancmd/the-chunker.git
-    cd the-chunker
+    git clone [https://github.com/renancmd/ReChunk.git](https://github.com/renancmd/ReChunk.git)
+    cd ReChunk
     ```
 
-2.  **Install requirements:**
-    ```bash
-    pip install pyinstaller
-    ```
-    *(Note: The tool uses standard libraries like `tkinter`, `os`, `zipfile`. PyInstaller is only for building).*
+### 📂 Structure
+* `/external-tool` - Python source code for the Desktop App.
+* `/server-plugin` - Java source code for the Hytale Mod.
 
-3.  **Run the GUI:**
-    ```bash
-    python gui.py
-    ```
+### Building the Mod (Java)
+```
+cd server-plugin
+./gradlew build
+# The compiled .jar will be in /build/libs
 
-4.  **Build the .exe:**
-    ```bash
-    pyinstaller --noconsole --onefile --icon="icon.ico" --add-data "icon.ico;." gui.py --name "HytaleChunker"
-    ```
+### Building the tool (Python)
+cd external-tool
+pip install pyinstaller
+# Build standalone exe:
+pyinstaller --noconsole --onefile --icon="icon.ico" gui.py --name "ReChunkTool"
+```
 
----
+### ⚠️ Disclaimer
 
-## ⚠️ Disclaimer
-This tool deletes files from your save directory. While it includes an automatic backup feature, **the author is not responsible for any data loss**. Always make a manual copy of your `Saves` folder before editing world files.
+This tool modifies/deletes files from your save directory. While it includes backup features, the author is not responsible for any data loss. Always make a manual copy of your Saves folder before editing world files.
 
-## 📄 License
-This project is licensed under the **GNU GPLv3 License**.
-* You are free to use, modify, and distribute this software.
-* If you modify and distribute it, you **must** keep it open-source under the same license.
-* **Credits to the original author must be preserved.**
+### 📄 License
 
----
+This project is licensed under the GNU GPLv3 License.
 
-**Created by Renan/Teyuz**
+**Created by Teyuz/Renan**
